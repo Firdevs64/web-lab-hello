@@ -57,7 +57,7 @@ input, textarea {
 article img {
   width: 100%;
   max-width: 720px;   /* istersen 600/800 yap */
-  height: 320px;      /* ikisi de aynı yükseklik */
+  height: 420px;      /* ikisi de aynı yükseklik */
   object-fit: cover;  /* kırpmayı düzgün yapar */
   display: block;
   margin-top: 0.5rem;
