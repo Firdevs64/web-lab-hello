@@ -53,3 +53,13 @@ input, textarea {
   color: red;
   font-size: 0.85rem;
 }
+
+article img {
+  width: 100%;
+  max-width: 720px;   /* istersen 600/800 yap */
+  height: 320px;      /* ikisi de aynı yükseklik */
+  object-fit: cover;  /* kırpmayı düzgün yapar */
+  display: block;
+  margin-top: 0.5rem;
+  border-radius: 8px;
+}
