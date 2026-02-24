@@ -82,3 +82,11 @@ Bu projede profesyonel Git akışı uygulanmıştır:
 - main → Stabil kod
 - feature/personalize-ui → Özelleştirme branch’i
 - En az 3 anlamlı commit kullanılmıştır.
+
+---
+
+## Lighthouse Accessibility Sonucu
+
+**Accessibility Skoru:** 98 / 100
+
+![Lighthouse Accessibility Sonucu](assets/lighthouse-accessibility.png)
