@@ -1,13 +1,121 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>web-lab-hello</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Firdevs Köse - Portföy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<a href="#main-content" class="skip-link">
+  Ana içeriğe atla
+</a>
+
+<header>
+  <h1>Firdevs Köse - Kişisel Portföy</h1>
+
+  <nav aria-label="Ana navigasyon">
+    <ul>
+      <li><a href="#hakkimda">Hakkımda</a></li>
+      <li><a href="#projeler">Projeler</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <section id="hakkimda">
+<figure>
+  <img src="profil.jpg"
+       alt="Firdevs Köse'nin profil fotoğrafı">
+  <figcaption>Firdevs Köse</figcaption>
+</figure>
+
+<p>
+  Fırat Üniversitesi Yazılım Mühendisliği öğrencisiyim.
+  Web geliştirme ve mobil uygulamalar üzerine çalışıyorum.
+</p>
+
+<h3>Kullandığım Teknolojiler</h3>
+<ul>
+  <li>HTML5</li>
+  <li>CSS3</li>
+  <li>React</li>
+  <li>TypeScript</li>
+</ul>
+  </section>
+
+  <section id="projeler">
+<article>
+  <h3>CampusMart</h3>
+  <p>Flutter ile geliştirilmiş mini e-ticaret uygulaması.</p>
+  <img src="campusmart.png"
+       alt="CampusMart uygulama ekran görüntüsü">
+</article>
+
+<article>
+  <h3>NovaStoreDB</h3>
+  <p>SQL Server ile tasarlanmış e-ticaret veri tabanı projesi.</p>
+  <img src="novastore.png"
+       alt="NovaStore veri tabanı şema görüntüsü">
+</article>
+  </section>
+
+  <section id="iletisim">
+<form action="#" method="POST" novalidate>
+  <fieldset>
+    <legend>İletişim Formu</legend>
+
+    <div class="form-group">
+      <label for="name">Ad Soyad:</label>
+      <input type="text"
+             id="name"
+             name="name"
+             required
+             minlength="2"
+             aria-describedby="name-error">
+      <small id="name-error"
+             class="error-msg"
+             role="alert"></small>
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-posta:</label>
+      <input type="email"
+             id="email"
+             name="email"
+             required
+             aria-describedby="email-error">
+      <small id="email-error"
+             class="error-msg"
+             role="alert"></small>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Mesajınız:</label>
+      <textarea id="message"
+                name="message"
+                rows="5"
+                required
+                minlength="10"
+                aria-describedby="message-error"></textarea>
+      <small id="message-error"
+             class="error-msg"
+             role="alert"></small>
+    </div>
+
+    <button type="submit">Gönder</button>
+  </fieldset>
+</form>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Firdevs Köse</p>
+</footer>
+
+</body>
 </html>
