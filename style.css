@@ -1,15 +1,13 @@
 @import "./src/styles/tokens.css";
+
+/* ========== Reset ========== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
-  padding: 20px;
-}
+/* ========== Base ========== */
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
@@ -19,80 +17,99 @@ body {
   font-size: var(--text-base);
 }
 
-h1 { font-size: var(--text-3xl); }
-h2 { font-size: var(--text-2xl); }
-h3 { font-size: var(--text-xl); }
-
-main { padding: var(--space-6); }
-
-header, section, footer {
-  margin-bottom: 2rem;
+/* Sayfanın genel iç boşluğu */
+main {
+  padding: var(--space-6);
 }
 
+/* Bölümler arası boşluk */
+header,
+section,
+footer {
+  margin-bottom: var(--space-8);
+}
+
+/* Başlıklar (fluid typography tokens) */
+h1 {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-3);
+}
+h2 {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-3);
+}
+h3 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-2);
+}
+
+p {
+  margin-bottom: var(--space-3);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+a:hover {
+  text-decoration: none;
+}
+
+/* ========== Accessibility helpers ========== */
 .skip-link {
   position: absolute;
   top: -100px;
   left: 0;
-  background: #1E3A8A;
+  background: #1e3a8a;
   color: white;
   padding: 8px 16px;
   z-index: 100;
 }
-
 .skip-link:focus {
   top: 0;
 }
 
 :focus {
-  outline: 2px solid #2563EB;
+  outline: 2px solid #2563eb;
   outline-offset: 2px;
 }
 
-.form-group {
-  margin-bottom: 1rem;
+/* ========== Header / Nav (Flex) ========== */
+header {
+  position: sticky;
+  top: 0;
+  background: var(--color-bg);
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid #e5e7eb;
 }
 
-label {
-  display: block;
-  margin-bottom: 0.25rem;
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--space-3);
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
 }
 
-input, textarea {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+/* ========== Skills tags (Flex-wrap) ========== */
+.skill-tags {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
 }
 
-.error-msg {
-  color: red;
-  font-size: 0.85rem;
+.skill-tags li {
+  background: var(--color-surface);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
 }
 
-article img {
-  width: 100%;
-  max-width: 720px;   /* istersen 600/800 yap */
-  height: 420px;      /* ikisi de aynı yükseklik */
-  object-fit: cover;  /* kırpmayı düzgün yapar */
-  display: block;
-  margin-top: 0.5rem;
-  border-radius: 8px;
-}
-
-#projeler {
-  display: grid;
-  gap: var(--space-6);
-}
-
-@media (min-width: 1024px) {
-  #projeler {
-    grid-template-columns: 1fr 1fr;
-  }
-  .project-grid {
-  grid-template-columns: repeat(3, 1fr);
-}
-}
-
+/* ========== Projects (Grid + Cards) ========== */
+/* ⚠️ #projeler'e grid VERME! Başlık da grid item olup sola kayıyordu. */
 .project-grid {
   display: grid;
   gap: var(--space-6);
@@ -107,9 +124,53 @@ article img {
 
 .project-card img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: 200px;       /* PDF uyumlu */
+  object-fit: cover;   /* kırpma düzgün */
   border-radius: var(--radius-md);
   margin-top: var(--space-3);
   display: block;
+}
+
+/* ========== Form ========== */
+.form-group {
+  margin-bottom: var(--space-4);
+}
+
+label {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: var(--space-3);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.error-msg {
+  color: red;
+  font-size: 0.85rem;
+}
+
+/* ========== Breakpoints (Mobile-first) ========== */
+/* Tablet */
+@media (min-width: 640px) {
+  main {
+    padding: var(--space-8);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  main {
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  /* PDF’de istenen: desktopta 3 kolon */
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
