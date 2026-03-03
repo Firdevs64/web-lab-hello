@@ -84,8 +84,32 @@ article img {
   gap: var(--space-6);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   #projeler {
     grid-template-columns: 1fr 1fr;
   }
+  .project-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+}
+
+.project-grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.project-card {
+  background: var(--color-surface);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin-top: var(--space-3);
+  display: block;
 }
