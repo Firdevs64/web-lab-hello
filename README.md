@@ -1,6 +1,6 @@
 # Web LAB -1 - Hello Project
 
-## Hakkinda
+## Hakkında
 
 Bu proje, Fırat Üniversitesi Web Tasarimi ve Programlama dersi kapsamında LAB-1 ödevi olarak hazırlanmıştır.
 
@@ -18,14 +18,14 @@ adımları uygulanmıştır.
 
 ---
 
-## Gelistirici
+## Geliitirici
 
 - **Ad Soyad:** Firdevs Köse
-- **Ogrenci No:** 230541057
+- **Ögrenci No:** 230541057
 
 ---
 
-## Kullanilan Teknolojiler
+## Kullanılan Teknolojiler
 
 - React 18
 - TypeScript

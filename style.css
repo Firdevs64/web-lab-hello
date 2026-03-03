@@ -78,3 +78,14 @@ article img {
   margin-top: 0.5rem;
   border-radius: 8px;
 }
+
+#projeler {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  #projeler {
+    grid-template-columns: 1fr 1fr;
+  }
+}
