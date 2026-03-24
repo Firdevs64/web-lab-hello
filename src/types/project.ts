@@ -1,8 +1,4 @@
-export type Category =
-  | "frontend"
-  | "fullstack"
-  | "backend";
-
+export type Category = "frontend" | "fullstack" | "backend";
 export type SortField = "year" | "title";
 export type SortOrder = "asc" | "desc";
 

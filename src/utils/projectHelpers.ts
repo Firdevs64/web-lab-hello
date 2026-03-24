@@ -5,10 +5,7 @@ import type {
   SortOrder,
 } from "../types/project";
 
-export function filterBySearch(
-  projects: Project[],
-  query: string
-): Project[] {
+export function filterBySearch(projects: Project[], query: string): Project[] {
   if (!query.trim()) return projects;
 
   const lower = query.toLowerCase();
@@ -34,9 +31,7 @@ export function sortProjects(
   order: SortOrder
 ): Project[] {
   const sorted = [...projects].sort((a, b) => {
-    if (field === "year") {
-      return a.year - b.year;
-    }
+    if (field === "year") return a.year - b.year;
     return a.title.localeCompare(b.title, "tr");
   });
 

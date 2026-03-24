@@ -13,42 +13,60 @@ export default function App() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function load() {
+    async function loadProjects() {
       try {
         setLoading(true);
         setError(null);
         const data = await fetchProjects();
         setProjects(data);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Bilinmeyen hata");
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          setError(error.message);
+        } else {
+          setError("Veri yuklenemedi");
+        }
       } finally {
         setLoading(false);
       }
     }
 
-    load();
+    loadProjects();
   }, []);
 
-  const filtered = applyFilters(projects, search, category, sortField, sortOrder);
-
-  const categories: (Category | "all")[] = [
-    "all",
-    "frontend",
-    "fullstack",
-    "backend",
-  ];
+  const filteredProjects = applyFilters(
+    projects,
+    search,
+    category,
+    sortField,
+    sortOrder
+  );
 
   return (
     <div style={{ padding: "24px", fontFamily: "system-ui" }}>
       <h1>Projelerim</h1>
 
       {error && (
-        <div style={{ color: "white", background: "crimson", padding: "12px", marginBottom: "16px" }}>
+        <div
+          style={{
+            background: "crimson",
+            color: "white",
+            padding: "12px",
+            marginBottom: "16px",
+            borderRadius: "8px",
+          }}
+        >
           <strong>Hata:</strong> {error}
         </div>
       )}
 
-      <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "20px" }}>
+      <div
+        style={{
+          display: "flex",
+          gap: "12px",
+          flexWrap: "wrap",
+          marginBottom: "20px",
+        }}
+      >
         <input
           type="text"
           placeholder="Proje ara..."
@@ -56,20 +74,10 @@ export default function App() {
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <div>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setCategory(cat)}
-              style={{
-                marginRight: "8px",
-                fontWeight: category === cat ? "bold" : "normal",
-              }}
-            >
-              {cat === "all" ? "Tumu" : cat}
-            </button>
-          ))}
-        </div>
+        <button onClick={() => setCategory("all")}>Tumu</button>
+        <button onClick={() => setCategory("frontend")}>Frontend</button>
+        <button onClick={() => setCategory("fullstack")}>Fullstack</button>
+        <button onClick={() => setCategory("backend")}>Backend</button>
 
         <select
           value={sortField}
@@ -80,18 +88,28 @@ export default function App() {
         </select>
 
         <button
-          onClick={() => setSortOrder((o) => (o === "asc" ? "desc" : "asc"))}
+          onClick={() =>
+            setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"))
+          }
         >
-          {sortOrder === "asc" ? "A-Z" : "Z-A"}
+          {sortOrder === "asc" ? "Artan" : "Azalan"}
         </button>
       </div>
 
       {loading && <p>Yukleniyor...</p>}
 
-      {!loading && filtered.length === 0 && <p>Eslesen proje bulunamadi.</p>}
+      {!loading && filteredProjects.length === 0 && (
+        <p>Eslesen proje bulunamadi.</p>
+      )}
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "16px" }}>
-        {filtered.map((project) => (
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+          gap: "16px",
+        }}
+      >
+        {filteredProjects.map((project) => (
           <div
             key={project.id}
             style={{
@@ -102,7 +120,9 @@ export default function App() {
           >
             <h3>{project.title}</h3>
             <p>{project.description}</p>
-            <p><strong>Teknolojiler:</strong> {project.tech.join(", ")}</p>
+            <p>
+              <strong>Teknolojiler:</strong> {project.tech.join(", ")}
+            </p>
             <p>
               <small>
                 {project.year} · {project.category}
@@ -113,7 +133,7 @@ export default function App() {
       </div>
 
       <p style={{ marginTop: "16px" }}>
-        {filtered.length} / {projects.length} proje gosteriliyor
+        {filteredProjects.length} / {projects.length} proje gosteriliyor
       </p>
     </div>
   );

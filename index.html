@@ -1,126 +1,12 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta charset="UTF-8">
   <title>Firdevs Köse - Portföy</title>
-  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<a href="#main-content" class="skip-link">
-  Ana içeriğe atla
-</a>
-
-<header>
-  <h1>Firdevs Köse - Kişisel Portföy</h1>
-
-  <nav aria-label="Ana navigasyon">
-    <ul>
-      <li><a href="#hakkimda">Hakkımda</a></li>
-      <li><a href="#projeler">Projeler</a></li>
-      <li><a href="#iletisim">İletişim</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main id="main-content">
-
-  <section id="hakkimda">
-<figure>
-  <figcaption>Firdevs Köse</figcaption>
-</figure>
-
-<p>
-  Fırat Üniversitesi Yazılım Mühendisliği öğrencisiyim.
-  Web geliştirme ve mobil uygulamalar üzerine çalışıyorum.
-</p>
-
-<h3>Kullandığım Teknolojiler</h3>
-<ul>
-  <li>HTML5</li>
-  <li>CSS3</li>
-  <li>React</li>
-  <li>TypeScript</li>
-</ul>
-  </section>
-
-<section id="projeler">
-  <h2>Projelerim</h2>
-
-  <div class="project-grid">
-    <article class="project-card">
-      <h3>Hayat Hattı (Mobil Uygulama)</h3>
-      <p>Afet ve acil durumlarda kullanıcıların konum ve durum bilgilerini paylaşmasını sağlayan mobil uygulama projesi. Takım çalışması kapsamında geliştirilmiştir.</p>
-      <img src="assets/hayat-hatti.jpeg" alt="Hayat Hattı mobil uygulama ekran görüntüsü">
-    </article>
-
-    <article class="project-card">
-      <h3>Kasko Landing (Web Projesi)</h3>
-      <p>Sigorta hizmeti için geliştirilen modern bir landing page. Takım çalışması kapsamında geliştirilmiştir.</p>
-      <p>
-        Proje bağlantısı:
-        <a href="https://kasko-landing.vercel.app/" target="_blank" rel="noreferrer">Siteyi Görüntüle</a>
-      </p>
-      <img src="assets/kasko-landing.png" alt="Kasko Landing web sitesi ana sayfa ekran görüntüsü">
-    </article>
-  </div>
-</section>
-
-  <section id="iletisim">
-<form action="#" method="POST" novalidate>
-  <fieldset>
-    <legend>İletişim Formu</legend>
-
-    <div class="form-group">
-      <label for="name">Ad Soyad:</label>
-      <input type="text"
-             id="name"
-             name="name"
-             required
-             minlength="2"
-             aria-describedby="name-error">
-      <small id="name-error"
-             class="error-msg"
-             role="alert"></small>
-    </div>
-
-    <div class="form-group">
-      <label for="email">E-posta:</label>
-      <input type="email"
-             id="email"
-             name="email"
-             required
-             aria-describedby="email-error">
-      <small id="email-error"
-             class="error-msg"
-             role="alert"></small>
-    </div>
-
-    <div class="form-group">
-      <label for="message">Mesajınız:</label>
-      <textarea id="message"
-                name="message"
-                rows="5"
-                required
-                minlength="10"
-                aria-describedby="message-error"></textarea>
-      <small id="message-error"
-             class="error-msg"
-             role="alert"></small>
-    </div>
-
-    <button type="submit">Gönder</button>
-  </fieldset>
-</form>
-  </section>
-
-</main>
-
-<footer>
-  <p>&copy; 2026 Firdevs Köse</p>
-</footer>
-
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
